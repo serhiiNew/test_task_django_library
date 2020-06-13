@@ -1,0 +1,54 @@
+
+<footer class="page-footer font-small blue pt-4 " style="background-color: #00D1C8;">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase">Footer</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit... </p>
+
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Books/Authors</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="{% url 'book-list' %}" class="text-white">Books list</a>
+          </li>
+          <li>
+            <a href="{% url 'book-create' %}" class="text-white">New book</a>
+          </li>
+          <li>
+            <a href="{% url 'author-list' %}" class="text-white">Authors list</a>
+          </li>
+          <li>
+            <a href="{% url 'author-create' %}" class="text-white">New author</a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">Info</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="{% url 'login'%}?next={{ request.path }}" class="text-white">Login</a>
+          </li>
+          <li>
+            <a href="{% url 'signup' %}" class="text-white">Signup</a>
+          </li>
+            <li>
+            <a href="{% url 'logout'%}?next={{ request.path }}" class="text-white">Logout</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright text-center py-3">
+    <img class="mb-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2C5zz6Sr0BcUXEdXyeaXbmPXwtw5Lzx-tVY-Hbk-PcJhPLGpG&usqp=CAU" alt="" width="24" height="24">
+      © 2020
+  </div>
+
+</footer>

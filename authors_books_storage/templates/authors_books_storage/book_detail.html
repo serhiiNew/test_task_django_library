@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-9 mx-auto my-3 my-sm-4 p-3">
+            <div class="card">
+                <h4 class="card-header">Book: "{{ object.title }}"</h4>
+                <div class="card-body">
+                    <h5 class="card-title">{% if object.author.all.count == 1 %}Author{% else %}Authors{% endif %}:</h5>
+                    <ul class="list-group list-group-flush">
+                        {% for current_author in object.author.all %}
+                        <a href="{% url 'author-detail' current_author.id %}"
+                           class="list-group-item list-group-item-action">{{ current_author }}</a>
+                        {% endfor %}
+                    </ul>
+                    <br><br>
+                    <a href="{% url 'book-update' object.pk %}" class="btn btn-warning">Change</a>
+                    <a href="{% url 'book-delete' object.pk %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

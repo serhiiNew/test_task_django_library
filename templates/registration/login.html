@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login-form">
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+        <h2 class="text-center">Log in</h2>
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" >
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" >
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" value="login" id="log-button">Login</button>
+        </div>
+        <div class="clearfix">
+              {% if form.errors %}
+                <p class="text-center" >Your username or password is incorrect. Please try again.</p>
+              {% endif %}
+
+              {% if next %}
+                {% if user.is_authenticated %}
+                   <script>document.getElementById("log-button").disabled = true;</script>
+                  <p class="text-center" style="color:red;">You already are logged in!</p>
+                {% else %}
+                  <p class="text-center">Please login to see this page.</p>
+                {% endif %}
+              {% endif %}
+        </div>
+    </form>
+    <p class="text-center"><a href="{% url 'signup' %}">You don't have account? Create it now!</a></p>
+</div>
+
+
+{% endblock %}
